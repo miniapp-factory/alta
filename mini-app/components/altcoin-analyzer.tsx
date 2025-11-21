@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Connection, PublicKey } from "@solana/web3.js";
 
 export default function AltcoinAnalyzer() {
-  const [tokens, setTokens] = useState<any[]>([]);
+  const [tokens, setTokens] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function AltcoinAnalyzer() {
       <ul className="space-y-2">
         {tokens.map((acc, idx) => (
           <li key={idx} className="p-2 border rounded">
-            {JSON.stringify(acc.account.data.parsed.info)}
+            {JSON.stringify((acc as any).account.data.parsed.info)}
           </li>
         ))}
       </ul>
